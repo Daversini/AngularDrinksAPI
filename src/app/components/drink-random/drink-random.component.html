@@ -1,0 +1,22 @@
+<div class="container mt-4 text-center">
+    <h1 class="display-4 mb-3">Non hai fantasia? Cerchiamo il drink per te!</h1>
+    <hr class="mb-4">
+
+    <button (click)="onClickDrinkRetriever()" class="btn btn-success mb-4">
+        Nuovo drink
+    </button>
+
+    <div class="container">
+        <h1 class="text-center mb-4">{{drink.strDrink}} ({{drink.strAlcoholic}})</h1>
+        <div class="row align-items-center">
+            <!-- Colonna sinistra: immagine -->
+            <div class="col-md-6 text-center d-flex justify-content-center">
+                <img [src]="drink.strDrinkThumb" class="img-fluid rounded">
+            </div>
+            <!-- Colonna destra: descrizione -->
+            <div class="col-md-6 text-center d-flex justify-content-center">
+                <h3>{{drink.strInstructionsIT}}</h3>
+            </div>
+        </div>
+    </div>
+</div>
