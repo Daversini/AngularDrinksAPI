@@ -16,4 +16,10 @@ export class DrinkService {
     let endPoint : string = this.apiUrl + "random.php"
     return this.http.get<Drink>(endPoint)
   }
+
+  searchDrinkByName(drinkName: string) : Observable<Drink> {
+    let endPoint : string = this.apiUrl + "search.php?s=" + drinkName
+    console.log(endPoint)
+    return this.http.get<Drink>(endPoint)
+  }
 }

@@ -1,1 +1,36 @@
-<h1>Search page in construction...</h1>
+<div class="container mt-4 text-center">
+    <h1 class="display-4 mb-3">Cerca il drink perfetto per te!</h1>
+    <hr class="mb-4">
+
+    <div class="d-flex justify-content-center align-items-center mb-4">
+        <input type="text" #box placeholder="Cerca drink" name="drink" class="form-control me-2" style="max-width: 300px;">
+        <button (click)="onClickDrinkRetriever(box.value)" class="btn btn-success">Cerca</button>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-4 mb-4" *ngFor="let drink of drinks">
+            <div class="card h-100">
+                <!-- Immagine -->
+                <a [href]="'https://www.google.com/search?q=' + drink.strDrink + ' drink'" target="_blank">
+                    <img [src]="drink.strDrinkThumb" class="card-img-top img-fluid" alt="{{drink.strDrink}}">
+                </a>
+                <!-- Corpo della card -->
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">{{drink.strDrink}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{drink.strAlcoholic}}</h6>
+                    <p class="card-text">{{drink.strInstructionsIT}}</p>
+                    <div class="mt-auto">
+                        <hr>
+                        <p class="card-text"><strong>Categoria:</strong> {{drink.strCategory}}</p>
+                        <p class="card-text"><strong>Bicchiere consigliato:</strong> {{drink.strGlass}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Messaggio di drink non trovato -->
+    <div class="alert alert-warning" role="alert" *ngIf="searchPerformed && drinks.length == 0">
+        Nessun drink trovato. Prova a cercare con un nome diverso!
+    </div>
+</div>
